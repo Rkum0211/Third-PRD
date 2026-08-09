@@ -1,0 +1,152 @@
+START
+
+Create Scanner object
+Display "CampusTrack System"
+
+DO
+    Read student ID
+    Validate student ID is not empty
+
+    Read full name
+    Validate full name is not empty
+
+    Read age
+    WHILE age < 15 OR age > 35
+        Display "Age must be between 15 and 35"
+        Read age again
+    END WHILE
+
+    Read email
+    WHILE email is invalid
+        Display "Enter a valid email"
+        Read email again
+    END WHILE
+
+    DO
+        Display course menu
+        Read course choice
+
+        SWITCH course choice
+            CASE 1:
+                Set course name to BCA
+                Set base fee to 45000
+            CASE 2:
+                Set course name to BBA
+                Set base fee to 40000
+            CASE 3:
+                Set course name to B.Tech
+                Set base fee to 65000
+            CASE 4:
+                Set course name to BA English
+                Set base fee to 30000
+            DEFAULT:
+                Display invalid-choice message
+        END SWITCH
+    WHILE course choice is invalid
+
+    Read semester
+    WHILE semester < 1 OR semester > 8
+        Display error
+        Read semester again
+    END WHILE
+
+    Read complete career goal
+
+    Read and validate marks for subject 1 to subject 5
+    Calculate total marks
+    Calculate percentage = (double) total marks / 500 × 100
+
+    Check whether every subject mark is at least 40
+    Check whether percentage is at least 50
+    Determine grade based on percentage
+
+    Read total classes
+    WHILE total classes is not between 1 and 200
+        Display error
+        Read total classes again
+    END WHILE
+
+    Read attended classes
+    WHILE attended classes < 0 OR attended classes > total classes
+        Display error
+        Read attended classes again
+    END WHILE
+
+    Calculate attendance percentage
+    Set attendance status using ternary operator:
+        "ELIGIBLE" if attendance is at least 75%, otherwise "SHORTAGE"
+
+    Read number of assignment entries
+    WHILE entries are not between 1 and 20
+        Display error
+        Read entry count again
+    END WHILE
+
+    Set assignment total = 0
+    Set valid assignment count = 0
+
+    FOR each assignment entry
+        Read assignment score
+
+        IF score = -1
+            Display early-finish message
+            BREAK
+        END IF
+
+        IF score < 0 OR score > 100
+            Display skipped-entry warning
+            CONTINUE
+        END IF
+
+        Add score to assignment total
+        Increase valid assignment count
+    END FOR
+
+    IF valid assignment count > 0
+        assignment average = (double) assignment total / valid assignment count
+    ELSE
+        assignment average = 0
+    END IF
+
+    Determine assignment status:
+        satisfactory if average is at least 50 and valid count is greater than 0
+
+    Determine scholarship percentage:
+        25% if percentage is at least 90
+        15% if percentage is at least 80
+        10% if percentage is at least 70
+        0% otherwise
+
+    Calculate scholarship amount
+    Calculate final payable fee
+
+    Read amount paid
+    WHILE amount paid < 0 OR amount paid > final payable fee
+        Display error
+        Read amount paid again
+    END WHILE
+
+    Calculate fee balance
+    Set fee status using ternary operator:
+        "CLEARED" if balance is 0, otherwise "PENDING"
+
+    Check academic, attendance, assignment, and fee conditions
+    Set final clearance using ternary operator:
+        "CLEARED" if every condition is met, otherwise "NOT CLEARED"
+
+    Display complete student report
+    Display failed conditions
+    Display recommendations
+
+    Read continue choice
+    WHILE choice is not 1 and not 0
+        Display error
+        Read choice again
+    END WHILE
+
+WHILE choice = 1
+
+Display closing message
+Close Scanner
+
+STOP
